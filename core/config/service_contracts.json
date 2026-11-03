@@ -1,0 +1,70 @@
+{
+  "schema_version": 2,
+  "contract_id": "resimem_service_contract_v2",
+  "description": "Default GPU-only runtime contract for service availability, outage windows, recovery deadlines, and joint SLOs. TTFT is report-only because no universal absolute threshold applies across models and devices.",
+  "windowing": {
+    "outage_budget_window_s": 600.0,
+    "joint_slo_window_s": 10.0
+  },
+  "llm": {
+    "ttft_slo_mode": "report_only",
+    "tpot_p95_s": 0.05,
+    "request_slo_attainment": 0.95
+  },
+  "defaults": {
+    "critical": {
+      "service_mode": "realtime",
+      "latency_sla_s": 1.0,
+      "minimum_availability": 0.99,
+      "outage_budget_s_per_window": 6.0,
+      "max_continuous_outage_s": 5.0,
+      "recovery_deadline_s": 10.0,
+      "fallback_mode": "none",
+      "legal_fallback_backends": [],
+      "service_priority_weight": 0.8
+    },
+    "elastic": {
+      "service_mode": "elastic",
+      "latency_sla_s": 0.0,
+      "minimum_availability": 0.95,
+      "outage_budget_s_per_window": 30.0,
+      "max_continuous_outage_s": 30.0,
+      "recovery_deadline_s": 30.0,
+      "fallback_mode": "none",
+      "legal_fallback_backends": [],
+      "service_priority_weight": 0.5
+    }
+  },
+  "services": {
+    "vision": {
+      "class": "critical",
+      "fallback_mode": "none",
+      "legal_fallback_backends": [],
+      "service_priority_weight": 0.9
+    },
+    "safety": {
+      "class": "critical",
+      "fallback_mode": "none",
+      "legal_fallback_backends": [],
+      "service_priority_weight": 1.0
+    },
+    "speech": {
+      "class": "elastic",
+      "fallback_mode": "none",
+      "legal_fallback_backends": [],
+      "service_priority_weight": 0.4
+    },
+    "nlp_lite": {
+      "class": "elastic",
+      "fallback_mode": "none",
+      "legal_fallback_backends": [],
+      "service_priority_weight": 0.6
+    },
+    "retrieval": {
+      "class": "elastic",
+      "fallback_mode": "none",
+      "legal_fallback_backends": [],
+      "service_priority_weight": 0.5
+    }
+  }
+}

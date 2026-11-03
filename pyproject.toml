@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "resimem"
+version = "3.0.0"
+description = "GPU memory management and scheduling for colocated LLM and DNN services"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "ResiMem Team" }]
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+classifiers = [
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+]
+dependencies = [
+    "numpy>=2.2.0,<3.0.0",
+    "torch>=2.9.0,<2.11.0",
+]
+
+[project.urls]
+Repository = "https://github.com/Architto/TSC_Resimem"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "pytest-xdist>=3.0.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["core*"]
+
+[tool.setuptools.package-data]
+core = ["config/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

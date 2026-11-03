@@ -1,0 +1,71 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Virtual environments and local installs
+.venv/
+venv/
+env/
+ENV/
+*.egg-info/
+build/
+dist/
+
+# IDE and operating-system files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Secrets and machine-local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+.github_token
+github_credentials.txt
+
+# Models, datasets and third-party source trees
+models/
+data/
+datasets/
+checkpoints/
+vllm_src/
+third_party/
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.safetensors
+*.h5
+
+# Runtime artifacts
+logs/
+results/
+artifacts/
+outputs/
+tmp/
+*.log
+*.jsonl
+*.csv
+*.pid
+*.seed
+
+# Evaluation reports and publication artifacts
+docs/experiments/
+docs/05_research/
+paper/
+figures/
+*.pdf
+*.zip
+*.tar
+*.tar.gz

@@ -1,0 +1,9 @@
+# ResiMem core runtime dependencies.
+# Python >= 3.10 is required (for multiprocessing.shared_memory etc.)
+
+# Core runtime
+torch>=2.9.0,<2.11.0
+numpy>=2.2.0,<3.0.0
+
+# vLLM integration requires a compatible build that exposes the ResiMem KV cache
+# interface. Use that build's pyproject.toml to select the exact PyTorch/CUDA pair.
